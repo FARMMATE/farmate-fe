@@ -1,7 +1,7 @@
 package com.ifwinfirstplace.farmate
 
 interface PageChangeListener {
-    fun changePage(page : Page)
+    fun changePage(page: Page, checked: Boolean = false)
     fun finishApp()
 }
 

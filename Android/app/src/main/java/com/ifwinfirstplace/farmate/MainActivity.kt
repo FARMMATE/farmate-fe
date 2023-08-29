@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), PageChangeListener {
 
     }
 
-    override fun changePage(page: Page) {
+    override fun changePage(page: Page, checked: Boolean) {
         CoroutineScope(Dispatchers.Main).launch {
             when (page) {
                 Page.LOGIN -> {
@@ -36,12 +36,56 @@ class MainActivity : AppCompatActivity(), PageChangeListener {
 
                 Page.HOME -> {
                     binding.appbar.visibility = View.VISIBLE
+                    binding.appbarLeft.apply {
+                        setImageDrawable(getDrawable(R.drawable.outline_person_24))
+                    }
+
+                    binding.appbarRight.apply {
+                        setImageDrawable(getDrawable(R.drawable.baseline_search_24))
+                    }
                 }
 
-                Page.DETAIL -> {}
-                Page.CONTACT -> {}
-                Page.MY -> {}
-                Page.SEARCH -> {}
+                Page.DETAIL -> {
+                    binding.appbarLeft.apply {
+                        setImageDrawable(getDrawable(R.drawable.baseline_arrow_back_24))
+                    }
+
+                    binding.appbarRight.apply {
+                        visibility = View.VISIBLE
+                        if(checked) {
+                            setImageDrawable(getDrawable(R.drawable.baseline_bookmark_24))
+                        }else{
+                            setImageDrawable(getDrawable(R.drawable.baseline_bookmark_border_24))
+                        }
+                    }
+                }
+                Page.CONTACT -> {
+                    binding.appbarLeft.apply {
+                        setImageDrawable(getDrawable(R.drawable.baseline_arrow_back_24))
+                    }
+
+                    binding.appbarRight.apply {
+                        visibility = View.GONE
+                    }
+                }
+                Page.MY -> {
+                    binding.appbarLeft.apply {
+                        setImageDrawable(getDrawable(R.drawable.baseline_search_24))
+                    }
+
+                    binding.appbarRight.apply {
+                        setImageDrawable(getDrawable(R.drawable.baseline_home_24))
+                    }
+                }
+                Page.SEARCH -> {
+                    binding.appbarLeft.apply {
+                        setImageDrawable(getDrawable(R.drawable.outline_person_24))
+                    }
+
+                    binding.appbarRight.apply {
+                        setImageDrawable(getDrawable(R.drawable.baseline_home_24))
+                    }
+                }
             }
         }
     }

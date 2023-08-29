@@ -4,6 +4,7 @@ const routes = {
   detailProduct: "/detail-product",
   business: "/business",
   splash: "splash",
+  businessRegister: "/business-register",
 };
 
 export default routes;

@@ -1,9 +1,9 @@
 const Input = ({ htmlFor, children, ...inputProps }) => {
   return (
     <>
-      <label className="flex font-medium justify-start mb-6 text-lg font-pretendard-l" htmlFor={htmlFor}>
+      <div className="flex justify-start font-medium mb-6 text-lg font-pretendard-l" htmlFor={htmlFor}>
         {children}
-      </label>
+      </div>
       <input
         className="block w-[22rem] outline-none border-b-2 focus:border-orange font-pretendard-l mb-10"
         {...inputProps}

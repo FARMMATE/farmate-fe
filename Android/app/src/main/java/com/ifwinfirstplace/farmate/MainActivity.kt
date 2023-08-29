@@ -1,11 +1,15 @@
 package com.ifwinfirstplace.farmate
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import androidx.navigation.NavController
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.ifwinfirstplace.farmate.databinding.ActivityMainBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity(), PageChangeListener {
     private var _binding : ActivityMainBinding? = null;
@@ -13,6 +17,7 @@ class MainActivity : AppCompatActivity(), PageChangeListener {
         get() = requireNotNull(_binding)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -23,15 +28,27 @@ class MainActivity : AppCompatActivity(), PageChangeListener {
     }
 
     override fun changePage(page: Page) {
-        when(page){
-            Page.LOGIN -> {
-                binding.appbar.visibility = View.GONE
+        CoroutineScope(Dispatchers.Main).launch {
+            when (page) {
+                Page.LOGIN -> {
+                    binding.appbar.visibility = View.GONE
+                }
+
+                Page.HOME -> {
+                    binding.appbar.visibility = View.VISIBLE
+                }
+
+                Page.DETAIL -> {}
+                Page.CONTACT -> {}
+                Page.MY -> {}
+                Page.SEARCH -> {}
             }
-            Page.HOME -> {}
-            Page.DETAIL -> {}
-            Page.CONTACT -> {}
-            Page.MY -> {}
-            Page.SEARCH -> {}
         }
+    }
+
+    override fun finishApp() {
+        moveTaskToBack(true)
+        finishAndRemoveTask()
+        exitProcess(0)
     }
 }

@@ -2,6 +2,7 @@ package com.ifwinfirstplace.farmate
 
 interface PageChangeListener {
     fun changePage(page : Page)
+    fun finishApp()
 }
 
 enum class Page {

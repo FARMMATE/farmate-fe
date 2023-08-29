@@ -6,3 +6,9 @@
   align-items: center;
   text-align: center;
 }
+
+html {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgb(0, 0, 0, 0);
+}

@@ -13,7 +13,6 @@ class LoginInterface(private val navController: NavController) {
 
     @JavascriptInterface
     fun checkLogin(id: String, pw: String) {
-        Log.d("우왁", "good")
-        navController.navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+        navController.navigate(R.id.action_loginFragment_to_homeFragment)
     }
 }

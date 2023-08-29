@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import LoginPage from "./pages/LoginPage";
 import DetailProduct from "./pages/DetailProduct";
 import Business from "./pages/Business";
+import Splash from "./pages/Splash";
 import routes from "./routes.js";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path={routes.splash} element={<Splash />} />
         <Route path={routes.login} element={<LoginPage />} />
         <Route path={routes.detailProduct} element={<DetailProduct />} />
         <Route path={routes.business} element={<Business />} />

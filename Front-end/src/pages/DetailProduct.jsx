@@ -3,8 +3,12 @@ import ProductDetailInfo from "../components/ProductDetailInfo";
 import OrangeBtn from "../components/OrangeBtn";
 import { farm } from "../utils/farm";
 import { product } from "../utils/product";
+import { useNavigate } from "react-router-dom";
+import routes from "../routes";
 
 const DetailProduct = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <ProductBasicInfo />
@@ -18,7 +22,7 @@ const DetailProduct = () => {
         <div className="h-20" />
       </div>
       <div className="fixed z-20 bottom-10 drop-shadow-xl">
-        <OrangeBtn>컨택하기</OrangeBtn>
+        <OrangeBtn onClick={() => navigate(routes.business)}>컨택하기</OrangeBtn>
       </div>
     </>
   );

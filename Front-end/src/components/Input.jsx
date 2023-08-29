@@ -1,7 +1,7 @@
 const Input = ({ htmlFor, children, ...inputProps }) => {
   return (
     <>
-      <div className="flex justify-start font-medium mb-6 text-lg font-pretendard-l" htmlFor={htmlFor}>
+      <div className="font-medium mb-6 text-lg font-pretendard-l" htmlFor={htmlFor}>
         {children}
       </div>
       <input

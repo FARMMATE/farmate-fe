@@ -33,7 +33,7 @@ class LoginFragment : Fragment() {
         }
         binding.webView.apply {
             addJavascriptInterface(LoginInterface(findNavController()), "Android")
-            loadUrl(Const.ip+":"+Const.port)
+            loadUrl(Const.ip+":"+Const.port+"/splash")
             settings.javaScriptEnabled = true
         }
     }

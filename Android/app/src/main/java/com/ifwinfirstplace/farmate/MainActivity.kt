@@ -11,6 +11,7 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
@@ -26,8 +27,9 @@ class MainActivity : AppCompatActivity(), PageChangeListener {
     private var _binding : ActivityMainBinding? = null;
     private val binding : ActivityMainBinding
         get() = requireNotNull(_binding)
-    var uploadMessage: ValueCallback<Array<Uri>>? = null
+    private val viewModel : MainViewModel by viewModels()
 
+    var uploadMessage: ValueCallback<Array<Uri>>? = null
     var launcher = registerForActivityResult<String, Uri>(ActivityResultContracts.GetContent()) {
         uploadMessage?.onReceiveValue(arrayOf(it))
     }

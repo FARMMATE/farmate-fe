@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.ifwinfirstplace.farmate.MainViewModel
 import com.ifwinfirstplace.farmate.Page
 import com.ifwinfirstplace.farmate.PageChangeListener
 import com.ifwinfirstplace.farmate.R
@@ -25,6 +27,7 @@ class HomeFragment : Fragment() {
     private var _binding : FragmentHomeBinding? = null
     private val binding : FragmentHomeBinding
         get() = requireNotNull(_binding)
+    private val viewModel: MainViewModel by activityViewModels()
 
     private lateinit var callback: OnBackPressedCallback
     private lateinit var job : Job
@@ -79,22 +82,26 @@ class HomeFragment : Fragment() {
         })
 
         val list = listOf(
-            ItemInfo("전라남도 완도군 가용리딸기작목반","2023 왕딸기", "for Business", R.drawable.wando_logo, R.drawable.berry , false),
-            ItemInfo("전라남도 장성군","신선한 납짝 복숭아", "for Business", R.drawable.jansung, R.drawable.peach, false),
-            ItemInfo("전라남도 나주시","땅의 기운을 머금은 풋당근", "for Business", R.drawable.naju, R.drawable.carrot, true),
-            ItemInfo("광주광역시","무등산 수박", "for Business", R.drawable.gwangju, R.drawable.watermelon, false),
+            ItemInfo("전라남도 완도군 가용리딸기작목반","2023 왕딸기", "for Business", R.drawable.wando_logo, R.drawable.berry , false, "strawberry"),
+            ItemInfo("전라남도 장성군","신선한 납짝 복숭아", "for Supporter", R.drawable.jansung, R.drawable.peach, false, "peach" ),
+            ItemInfo("전라남도 나주시","땅의 기운을 머금은 풋당근", "for Business", R.drawable.naju, R.drawable.carrot, true, "none"),
+            ItemInfo("광주광역시","무등산 수박", "for Business", R.drawable.gwangju, R.drawable.watermelon, false, "none"),
         )
 
         list.map {
             binding.hsvHomeHarvest.addView(ProductItemBinding.inflate(layoutInflater).apply {
+
                 imgItemLogo.setImageDrawable(resources.getDrawable(it.logoImgId))
                 imgItemMain.setImageDrawable(resources.getDrawable(it.mainImgId))
                 txtItemTitle.text = it.title
                 txtItemFrom.text = it.location
                 txtItemTarget.text = it.target
                 lyItemMatching.visibility  = if(it.isMatching) View.VISIBLE else View.GONE
-                productItem.setOnClickListener {
-                    findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
+                if(it.url != "none") {
+                    productItem.setOnClickListener {_ ->
+                        viewModel.focusItem = it.url
+                        findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
+                    }
                 }
 
                 cbItemBookmark.setOnClickListener {

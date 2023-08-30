@@ -1,12 +1,18 @@
 package com.ifwinfirstplace.farmate.view.detail
 
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.ifwinfirstplace.farmate.Const
+import com.ifwinfirstplace.farmate.MainViewModel
 import com.ifwinfirstplace.farmate.Page
 import com.ifwinfirstplace.farmate.PageChangeListener
 import com.ifwinfirstplace.farmate.R
@@ -19,7 +25,7 @@ class DetailFragment : Fragment() {
     private var _binding : FragmentDetailBinding? = null
     private val binding : FragmentDetailBinding
         get() = requireNotNull(_binding)
-
+    private val viewModel : MainViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,7 +42,8 @@ class DetailFragment : Fragment() {
         }
         binding.webView.apply {
             webChromeClient = (activity as PageChangeListener).getWebViewClient()
-            loadUrl(Const.ip+":"+ Const.port+"/detail-product")
+            webViewClient = MyWebViewClient()
+            loadUrl(Const.ip+":"+ Const.port+"/detail-product/${viewModel.focusItem}")
             settings.javaScriptEnabled = true
         }
     }
@@ -44,4 +51,20 @@ class DetailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private inner class MyWebViewClient : WebViewClient() {
+
+        override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+            if (Uri.parse(url).host == "${Const.ip}:${Const.port}/business") {
+
+                (activity as PageChangeListener).changePage(Page.CONTACT)
+                return false
+            }else if(Uri.parse(url).host == "${Const.ip}:${Const.port}/detail-product"){
+                (activity as PageChangeListener).changePage(Page.DETAIL)
+                return false
+            }
+            return true
+        }
+    }
+
 }

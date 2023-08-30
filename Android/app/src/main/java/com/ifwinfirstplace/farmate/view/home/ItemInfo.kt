@@ -7,6 +7,7 @@ data class ItemInfo(
     val target : String,
     val logoImgId : Int,
     val mainImgId : Int,
-    val isMatching : Boolean
+    val isMatching : Boolean,
+    val url : String,
 
 )

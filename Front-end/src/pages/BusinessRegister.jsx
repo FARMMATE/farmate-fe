@@ -47,7 +47,7 @@ const BusinessRegister = () => {
           </>
         ) : null}
         {clickTab[2] ? <Business intro={detail[0]} placeholder={detail[1]} /> : null}
-        <div className="drop-shadow-lg fixed bottom-12 ml-4">
+        <div className="drop-shadow-2xl fixed bottom-12 ml-4">
           <OrangeBtn>정보 등록하기</OrangeBtn>
         </div>
       </div>

@@ -3,6 +3,8 @@ package com.ifwinfirstplace.farmate
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.ComponentActivity
+import androidx.activity.OnBackPressedDispatcher
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.ifwinfirstplace.farmate.databinding.ActivityMainBinding
@@ -48,6 +50,9 @@ class MainActivity : AppCompatActivity(), PageChangeListener {
                 Page.DETAIL -> {
                     binding.appbarLeft.apply {
                         setImageDrawable(getDrawable(R.drawable.baseline_arrow_back_24))
+                        setOnClickListener{
+                            (this@MainActivity).onBackPressedDispatcher.onBackPressed()
+                        }
                     }
 
                     binding.appbarRight.apply {
@@ -62,6 +67,9 @@ class MainActivity : AppCompatActivity(), PageChangeListener {
                 Page.CONTACT -> {
                     binding.appbarLeft.apply {
                         setImageDrawable(getDrawable(R.drawable.baseline_arrow_back_24))
+                        setOnClickListener {
+                            (this@MainActivity).onBackPressedDispatcher.onBackPressed()
+                        }
                     }
 
                     binding.appbarRight.apply {

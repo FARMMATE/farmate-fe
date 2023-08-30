@@ -17,6 +17,16 @@ export default {
         "my-color": "#8D8D8D",
         orange: "#FF9B64",
       },
+      keyframes: {
+        fadein: {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
+        },
+      },
     },
     fontFamily: {
       "pretendard-l": ["Pretendard-Light"],

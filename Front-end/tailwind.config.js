@@ -37,7 +37,7 @@ export default {
             transform: "translateZ(0)",
           },
         },
-        goup: {
+        godown: {
           "0%": {
             opacity: 0,
             transform: "translate3d(0, -100%, 0)",
@@ -47,7 +47,7 @@ export default {
             transform: "translateZ(0)",
           },
         },
-        godown: {
+        goup: {
           "0%": {
             opacity: 0,
             transform: "translate3d(0, 100%, 0)",

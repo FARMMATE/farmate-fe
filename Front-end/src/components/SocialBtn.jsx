@@ -1,4 +1,4 @@
-const GrayBtn = ({ onClick, children }) => {
+const SocialBtn = ({ onClick, children }) => {
   return (
     <button className="w-[22rem] h-[3rem] rounded-xl text-black text-pretendard-l text-sm" onClick={onClick}>
       {children}
@@ -6,4 +6,4 @@ const GrayBtn = ({ onClick, children }) => {
   );
 };
 
-export default GrayBtn;
+export default SocialBtn;

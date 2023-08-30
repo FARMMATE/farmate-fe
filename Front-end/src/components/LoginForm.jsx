@@ -1,6 +1,6 @@
 import Input from "./Input";
 import OrangeBtn from "./OrangeBtn";
-import GrayBtn from "./GrayBtn";
+import SocialBtn from "./SocialBtn";
 import SubLabel from "./SubLabel";
 import { email, passwd } from "../utils/userInfo";
 import { useState, useEffect } from "react";
@@ -39,9 +39,15 @@ const LoginForm = () => {
         <SubLabel>비밀번호 찾기</SubLabel>
       </div>
 
-      <GrayBtn>카카오로 간편 로그인</GrayBtn>
-      <GrayBtn>네이버로 간편 로그인</GrayBtn>
-      <GrayBtn>google로 간편 로그인</GrayBtn>
+      <span className="bg-[#F6CF2C] rounded-xl mb-2">
+        <SocialBtn>카카오로 간편 로그인</SocialBtn>
+      </span>
+      <span className="bg-[#3BC350] rounded-xl mb-2">
+        <SocialBtn>네이버로 간편 로그인</SocialBtn>
+      </span>
+      <span className="bg-yellow-200 rounded-xl mb-2">
+        <SocialBtn>google로 간편 로그인</SocialBtn>
+      </span>
     </>
   );
 };

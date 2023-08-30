@@ -17,6 +17,7 @@ export default {
         "my-color": "#8D8D8D",
         "dark-black": "#2F2F2F",
         orange: "#FF9B64",
+        red: "#FF0000",
       },
       keyframes: {
         entry: {

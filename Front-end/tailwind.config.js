@@ -28,6 +28,14 @@ export default {
             opacity: 1,
           },
         },
+        opacity: {
+          from: {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
+          },
+        },
         fadein: {
           "0%": {
             opacity: 0,
@@ -105,6 +113,7 @@ export default {
         logofadeout: "logofadeout 0.5s ease-out",
         buttonfadeout: "buttonfadeout 0.5s ease-out",
         linefadein: "linefadein 0.5s ease-in-out",
+        opacity: "opacity 0.5s ease-in-out",
       },
     },
     fontFamily: {

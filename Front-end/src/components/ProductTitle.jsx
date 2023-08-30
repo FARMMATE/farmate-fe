@@ -1,5 +1,5 @@
 import { strawberryInfo, peachInfo } from "../utils/productInfo";
-import { user } from "../utils/user";
+import { businessUser, supportUser } from "../utils/user";
 
 const ProductTitle = ({ id }) => {
   return (
@@ -9,7 +9,7 @@ const ProductTitle = ({ id }) => {
         <p className="text-lg font-pretendard-l text-left">{id === "peach" ? peachInfo[0] : strawberryInfo[0]}</p>
         <div className=" font-pretendard-r flex justify-between items-center">
           <p className="font-bold text-xl mr-[7rem]">{id === "peach" ? peachInfo[1] : strawberryInfo[1]}</p>
-          <span className="text-orange text-sm">{id === "peach" ? user[1] : user[0]}</span>
+          <span className="text-orange text-sm">{id === "peach" ? supportUser[1] : businessUser[0]}</span>
         </div>
       </div>
     </div>

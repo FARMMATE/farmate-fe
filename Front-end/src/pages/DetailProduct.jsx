@@ -8,7 +8,6 @@ import routes from "../routes";
 import { useEffect, useState } from "react";
 
 const DetailProduct = ({ id }) => {
-  console.log(id === "peach");
   const navigate = useNavigate();
   const [toast, setToast] = useState(false);
   const [scroll, setScroll] = useState(false);
@@ -36,7 +35,7 @@ const DetailProduct = ({ id }) => {
   return (
     <>
       <ProductBasicInfo id={id} />
-      <div className="absolute top-[30rem] overflow-scroll h-fit bg-gray-100">
+      <div className="absolute top-[28rem] overflow-scroll h-fit bg-gray-100">
         <ProductDetailInfo type={farm[0]} src={id === "peach" ? "/peach3.png" : "/strawberry.png"}>
           {id === "peach" ? farm[2] : farm[1]}
         </ProductDetailInfo>
@@ -50,7 +49,7 @@ const DetailProduct = ({ id }) => {
             </div>
           </div>
         )}
-        <div className="h-[10rem]" />
+        <div className="h-[8rem]" />
       </div>
 
       <div className="fixed z-20 bottom-10 drop-shadow-xl bg-transparent" accept="pdf image/*">

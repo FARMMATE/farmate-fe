@@ -17,6 +17,7 @@ export default {
         "my-color": "#8D8D8D",
         "dark-black": "#2F2F2F",
         orange: "#FF9B64",
+        red: "#FF0000",
       },
       keyframes: {
         entry: {
@@ -57,12 +58,42 @@ export default {
             transform: "translateZ(0)",
           },
         },
+        fadeout: {
+          "0%": {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
+            transform: "translate3d(0, 50%, 0)",
+          },
+        },
+        logofadeout: {
+          "0%": {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
+            transform: "translate3d(0, -100%, 0)",
+          },
+        },
+        buttonfadeout: {
+          "0%": {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
+            transform: "translate3d(0, 100%, 0)",
+          },
+        },
       },
       animation: {
         fadein: "fadein 0.5s ease-out",
         goup: "goup 0.5s ease-out",
         godown: "godown 0.5s ease-out",
         entry: "entry 1s ease-out",
+        fadeout: "fadeout 1s ease-out",
+        logofadeout: "logofadeout 0.5s ease-out",
+        buttonfadeout: "buttonfadeout 0.5s ease-out",
       },
     },
     fontFamily: {

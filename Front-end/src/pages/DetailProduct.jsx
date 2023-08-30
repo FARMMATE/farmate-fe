@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const DetailProduct = ({ id }) => {
   const navigate = useNavigate();
   const [toast, setToast] = useState(false);
-  const [scroll, setScroll] = useState(false);
+  const [scroll, setScroll] = useState(true);
 
   useEffect(() => {
     let lastScrollY = 0;
@@ -20,8 +20,17 @@ const DetailProduct = ({ id }) => {
       const direction = scrollY > lastScrollY ? "down" : "up";
       lastScrollY = scrollY;
 
-      if (scrollY > 70) {
+      if (scrollY > 50) {
         setToast(true);
+        if (direction === "down") setScroll(true);
+        else if (direction === "up") {
+          setScroll(false);
+          setTimeout(() => {
+            setToast(false);
+          }, 1000);
+        }
+      } else {
+        setToast(false);
       }
     };
 
@@ -42,13 +51,21 @@ const DetailProduct = ({ id }) => {
         <ProductDetailInfo type={product[0]} src={id === "peach" ? "/peach2.png" : "/strawberry2.png"}>
           {id === "peach" ? product[2] : product[1]}
         </ProductDetailInfo>
-        {toast && (
-          <div className="flex justify-center align-center">
-            <div className="font-pretendard-l fixed z-20 rounded-2xl bg-dark-black w-[15rem] h-8 p-1 text-white bottom-[7rem] animate-goup">
-              현재 10명이 스크랩했어요!
+        {toast ? (
+          scroll ? (
+            <div className="flex justify-center align-center">
+              <div className="font-pretendard-l fixed z-20 rounded-2xl bg-dark-black w-[15rem] h-8 p-1 text-white bottom-[7rem] animate-goup">
+                현재 10명이 스크랩했어요!
+              </div>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="flex justify-center align-center">
+              <div className="font-pretendard-l fixed z-20 rounded-2xl bg-dark-black w-[15rem] h-8 p-1 text-white bottom-[7rem] animate-fadeout">
+                현재 10명이 스크랩했어요!
+              </div>
+            </div>
+          )
+        ) : null}
         <div className="h-[8rem]" />
       </div>
 

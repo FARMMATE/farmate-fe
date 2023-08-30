@@ -28,6 +28,7 @@
                 android:scaleType="centerCrop"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:background="@null"
                 android:id="@+id/ly_item_matching"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -44,6 +45,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
+                    android:background="@null"
                     android:id="@+id/imageView5"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
@@ -54,6 +56,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/view4" />
 
                 <TextView
+                    android:background="@null"
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,22 +86,33 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
+            android:layout_marginEnd="36dp"
             android:ellipsize="end"
             android:fontFamily="@font/base_font"
-            android:textColor="@color/black"
             android:maxLines="1"
+            android:textColor="@color/black"
             android:textSize="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/img_item_logo"
-            app:layout_constraintEnd_toStartOf="@+id/cb_item_bookmark"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/img_item_logo"
             app:layout_constraintTop_toTopOf="@+id/img_item_logo"
             tools:text="전라남도 보성군" />
 
+
+        <ImageView
+            android:id="@+id/cb_item_bookmark_t"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:padding="4dp"
+            android:src="@drawable/baseline_bookmark_24"
+            app:layout_constraintBottom_toBottomOf="@+id/img_item_logo"
+            app:layout_constraintEnd_toEndOf="@+id/cv_item_card"
+            app:layout_constraintTop_toTopOf="@+id/img_item_logo" />
         <ImageView
             android:id="@+id/cb_item_bookmark"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:padding="4dp"
             android:src="@drawable/baseline_bookmark_border_24"
             app:layout_constraintBottom_toBottomOf="@+id/img_item_logo"
             app:layout_constraintEnd_toEndOf="@+id/cv_item_card"

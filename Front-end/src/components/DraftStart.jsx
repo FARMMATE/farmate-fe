@@ -7,7 +7,7 @@ const DraftStart = ({ id }) => {
         <img src={id === "peach" ? "/support.png" : "/export.png"} alt="export" />
       </div>
       <div className="flex flex-col justify-start">
-        <div className="font-pretendard-r text-3xl font-bold mt-[3rem] mb-10">
+        <div className="font-pretendard-r text-3xl font-bold mt-[3rem] mb-8">
           {id === "peach" ? supportUser[0] : businessUser[0]}를 원해요!
         </div>
         <div>

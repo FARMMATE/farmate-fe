@@ -1,7 +1,7 @@
 const BusinessStart = () => {
   return (
     <div className="font-pretendard-l flex flex-col justify-start items-center text-left p-6 mt-[8rem]">
-      <div className="animate-fadein w-[70%]">
+      <div className="animate-fadein w-[20rem]">
         <img src="/export.png" alt="export" />
       </div>
       <div className="flex flex-col justify-start">

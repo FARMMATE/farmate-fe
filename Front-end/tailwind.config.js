@@ -18,6 +18,14 @@ export default {
         orange: "#FF9B64",
       },
       keyframes: {
+        entry: {
+          from: {
+            opacity: 0,
+          },
+          to: {
+            opacity: 1,
+          },
+        },
         fadein: {
           "0%": {
             opacity: 0,
@@ -42,6 +50,7 @@ export default {
       animation: {
         fadein: "fadein 0.5s ease-out",
         toup: "toup 0.5s ease-out",
+        entry: "entry 1s ease-out",
       },
     },
     fontFamily: {

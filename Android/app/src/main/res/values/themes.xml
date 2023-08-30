@@ -9,5 +9,6 @@
     <style name="Theme.Farmate" parent="Base.Theme.Farmate">
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:background">@color/white</item>
     </style>
 </resources>

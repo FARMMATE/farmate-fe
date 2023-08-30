@@ -15,6 +15,7 @@ export default {
         "bubble-gum": "#ff77e9",
         bermuda: "#78dcca",
         "my-color": "#8D8D8D",
+        "dark-black": "#2F2F2F",
         orange: "#FF9B64",
       },
       keyframes: {
@@ -36,7 +37,7 @@ export default {
             transform: "translateZ(0)",
           },
         },
-        toup: {
+        goup: {
           "0%": {
             opacity: 0,
             transform: "translate3d(0, -100%, 0)",
@@ -46,10 +47,21 @@ export default {
             transform: "translateZ(0)",
           },
         },
+        godown: {
+          "0%": {
+            opacity: 0,
+            transform: "translate3d(0, 100%, 0)",
+          },
+          to: {
+            opacity: 1,
+            transform: "translateZ(0)",
+          },
+        },
       },
       animation: {
         fadein: "fadein 0.5s ease-out",
-        toup: "toup 0.5s ease-out",
+        goup: "goup 0.5s ease-out",
+        godown: "godown 0.5s ease-out",
         entry: "entry 1s ease-out",
       },
     },

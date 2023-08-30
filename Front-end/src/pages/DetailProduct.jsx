@@ -22,6 +22,13 @@ const DetailProduct = ({ id }) => {
 
       if (scrollY > 70) {
         setToast(true);
+        if (direction === "down") {
+          setScroll(true);
+        } else {
+          setScroll(false);
+        }
+      } else {
+        setToast(false);
       }
     };
 
@@ -42,13 +49,21 @@ const DetailProduct = ({ id }) => {
         <ProductDetailInfo type={product[0]} src={id === "peach" ? "/peach2.png" : "/strawberry2.png"}>
           {id === "peach" ? product[2] : product[1]}
         </ProductDetailInfo>
-        {toast && (
-          <div className="flex justify-center align-center">
-            <div className="font-pretendard-l fixed z-20 rounded-2xl bg-dark-black w-[15rem] h-8 p-1 text-white bottom-[7rem] animate-goup">
-              현재 10명이 스크랩했어요!
+        {toast ? (
+          scroll ? (
+            <div className="flex justify-center align-center">
+              <div className="font-pretendard-l fixed z-20 rounded-2xl bg-dark-black w-[15rem] h-8 p-1 text-white bottom-[7rem] animate-goup">
+                현재 10명이 스크랩했어요!
+              </div>
             </div>
-          </div>
-        )}
+          ) : (
+            <div className="flex justify-center align-center">
+              <div className="font-pretendard-l fixed z-20 rounded-2xl bg-dark-black w-[15rem] h-8 p-1 text-white bottom-[7rem] animate-fadeout">
+                현재 10명이 스크랩했어요!
+              </div>
+            </div>
+          )
+        ) : null}
         <div className="h-[8rem]" />
       </div>
 

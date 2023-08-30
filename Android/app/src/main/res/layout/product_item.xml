@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/product_item"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_item_card"
+        android:layout_width="144dp"
+        android:layout_height="145dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/img_item_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/img_item_logo"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/cv_item_card"
+        app:layout_constraintTop_toBottomOf="@id/cv_item_card" />
+
+    <TextView
+        android:id="@+id/txt_item_from"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/base_font"
+        android:textColor="@color/black"
+        android:textSize="9dp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_item_logo"
+        app:layout_constraintEnd_toStartOf="@+id/cb_item_bookmark"
+        app:layout_constraintStart_toEndOf="@+id/img_item_logo"
+        app:layout_constraintTop_toTopOf="@+id/img_item_logo"
+        tools:text="전라남도 보성군" />
+
+    <ImageView
+        android:id="@+id/cb_item_bookmark"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/baseline_bookmark_border_24"
+        app:layout_constraintBottom_toBottomOf="@+id/img_item_logo"
+        app:layout_constraintEnd_toEndOf="@+id/cv_item_card"
+        app:layout_constraintTop_toTopOf="@+id/img_item_logo" />
+    <TextView
+        android:id="@+id/txt_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/base_font"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:textSize="10dp"
+        android:layout_marginStart="8dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/img_item_logo"
+        app:layout_constraintTop_toBottomOf="@+id/img_item_logo"
+        tools:text="2023 첫 수확 햇녹차" />
+
+    <TextView
+        android:id="@+id/txt_item_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/base_font"
+        android:textColor="#C5BABA"
+        android:textSize="7dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/txt_item_title"
+        app:layout_constraintTop_toBottomOf="@+id/txt_item_title"
+        tools:text="for business" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

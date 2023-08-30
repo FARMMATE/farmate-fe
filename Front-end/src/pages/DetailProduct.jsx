@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 const DetailProduct = ({ id }) => {
   const navigate = useNavigate();
   const [toast, setToast] = useState(false);
-  const [scroll, setScroll] = useState(false);
+  const [scroll, setScroll] = useState(true);
 
   useEffect(() => {
     let lastScrollY = 0;
@@ -20,12 +20,14 @@ const DetailProduct = ({ id }) => {
       const direction = scrollY > lastScrollY ? "down" : "up";
       lastScrollY = scrollY;
 
-      if (scrollY > 70) {
+      if (scrollY > 50) {
         setToast(true);
-        if (direction === "down") {
-          setScroll(true);
-        } else {
+        if (direction === "down") setScroll(true);
+        else if (direction === "up") {
           setScroll(false);
+          setTimeout(() => {
+            setToast(false);
+          }, 1000);
         }
       } else {
         setToast(false);

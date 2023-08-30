@@ -14,7 +14,7 @@ const ProductBasicInfo = ({ id }) => {
 
       const scrollTop = window.scrollY;
 
-      if (lnbOffsetTop <= scrollTop + 60) {
+      if (lnbOffsetTop <= scrollTop + 100) {
         setIsLnbFixed(true);
       } else {
         setIsLnbFixed(false);
@@ -38,9 +38,9 @@ const ProductBasicInfo = ({ id }) => {
         }
       >
         <div>
-          <img className="w-[26rem]" src={id === "peach" ? "/peach.jpg" : "/eximg.png"} alt="product" />
+          <img className="w-[26rem] h-[14rem]" src={id === "peach" ? "/peach.jpg" : "/eximg.png"} alt="product" />
         </div>
-        <div id="lnb" ref={lnb} className="mt-14 pb-8">
+        <div id="lnb" ref={lnb} className="mt-8 pb-8">
           <ProductTitle id={id} />
           <div className="text-start mt-5 mr-14">
             <ProductInfo type="예산">{id === "peach" ? peachInfo[2] : strawberryInfo[2]}</ProductInfo>

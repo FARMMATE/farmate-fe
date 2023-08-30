@@ -6,9 +6,11 @@ import { useNavigate } from "react-router-dom";
 import routes from "../routes";
 import useInput from "../hooks/useInput";
 import useValidation from "../hooks/useValidation";
+import { useState } from "react";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const [goHome, setGoHome] = useState(false);
 
   const { value, handleOnChange } = useInput({
     email: "",
@@ -22,14 +24,21 @@ const LoginForm = () => {
     if (window.Android) {
       window.Android.checkLogin("1", "1");
     } else {
-      navigate(routes.detailProduct + "/peach");
+      setGoHome(true);
+      setTimeout(() => {
+        navigate(routes.detailProduct + "/peach");
+      }, 600);
     }
   };
 
   return (
     <>
-      <div className="flex flex-col justify-start text-left">
-        <div className="text-xl font-semibold text-left mt-16 mb-20 font-pretendard-r">로그인</div>
+      <div
+        className={
+          goHome ? "animate-opacity flex flex-col justify-start text-left" : "flex flex-col justify-start text-left"
+        }
+      >
+        <div className="text-xl font-semibold text-left mt-12 mb-20 font-pretendard-r">로그인</div>
         <Input
           id="email"
           name="email"
@@ -58,30 +67,30 @@ const LoginForm = () => {
         >
           비밀번호
         </Input>
-      </div>
 
-      <OrangeBtn onClick={handleOnClick}>로그인</OrangeBtn>
+        <OrangeBtn onClick={handleOnClick}>로그인</OrangeBtn>
 
-      <div className="mt-8 flex flex-row justify-center mb-10">
-        <SubLabel>회원 가입</SubLabel>
-        <div className="border-l-2 mr-5" />
-        <SubLabel>아이디 찾기</SubLabel>
-        <div className="border-l-2 mr-5" />
-        <SubLabel>비밀번호 찾기</SubLabel>
-      </div>
+        <div className="mt-8 flex flex-row justify-center mb-10">
+          <SubLabel>회원 가입</SubLabel>
+          <div className="border-l-2 mr-5" />
+          <SubLabel>아이디 찾기</SubLabel>
+          <div className="border-l-2 mr-5" />
+          <SubLabel>비밀번호 찾기</SubLabel>
+        </div>
 
-      <span className="bg-[#FEE500] rounded-xl mb-2 shadow-lg h-12">
-        <SocialBtn src="/public/kakao.png">카카오로 간편 로그인</SocialBtn>
-      </span>
-      <span className="bg-[#3BC350] rounded-xl mb-2 shadow-lg h-12">
-        <SocialBtn src="/public/naver.png">네이버로 간편 로그인</SocialBtn>
-      </span>
-      <span
-        className="bg-white rounded-xl mb-2 shadow-lg h-12
+        <span className="bg-[#FEE500] rounded-xl mb-2 shadow-lg h-12">
+          <SocialBtn src="/public/kakao.png">카카오로 간편 로그인</SocialBtn>
+        </span>
+        <span className="bg-[#3BC350] rounded-xl mb-2 shadow-lg h-12">
+          <SocialBtn src="/public/naver.png">네이버로 간편 로그인</SocialBtn>
+        </span>
+        <span
+          className="bg-white rounded-xl mb-2 shadow-lg h-12
 "
-      >
-        <SocialBtn src="/public/google.png">google로 간편 로그인</SocialBtn>
-      </span>
+        >
+          <SocialBtn src="/public/google.png">google로 간편 로그인</SocialBtn>
+        </span>
+      </div>
     </>
   );
 };

@@ -21,7 +21,13 @@ const Splash = () => {
         src="/farmate-logo.png"
         alt="logo"
       />
-      <div className="drop-shadow-2xl fixed bottom-12 animate-goup">
+      <div
+        className={
+          goLogin
+            ? "drop-shadow-2xl fixed bottom-12 animate-buttonfadeout"
+            : "drop-shadow-2xl fixed bottom-12 animate-goup"
+        }
+      >
         <OrangeBtn onClick={handleOnClick}>시작하기</OrangeBtn>
       </div>
     </div>

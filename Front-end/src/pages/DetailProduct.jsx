@@ -10,10 +10,17 @@ import { useEffect, useState } from "react";
 const DetailProduct = () => {
   const navigate = useNavigate();
   const [toast, setToast] = useState(false);
+  const [scroll, setScroll] = useState(false);
 
   useEffect(() => {
+    let lastScrollY = 0;
     const handleScroll = () => {
-      if (window.scrollY > 70) {
+      const scrollY = window.scrollY;
+
+      const direction = scrollY > lastScrollY ? "down" : "up";
+      lastScrollY = scrollY;
+
+      if (scrollY > 70) {
         setToast(true);
       }
     };
@@ -37,7 +44,7 @@ const DetailProduct = () => {
         </ProductDetailInfo>
         {toast && (
           <div className="flex justify-center align-center">
-            <div className="font-pretendard-l fixed z-20 rounded-2xl bg-dark-black w-[15rem] h-8 p-1 text-white bottom-[7rem] animate-godown">
+            <div className="font-pretendard-l fixed z-20 rounded-2xl bg-dark-black w-[15rem] h-8 p-1 text-white bottom-[7rem] animate-goup">
               현재 10명이 스크랩했어요!
             </div>
           </div>

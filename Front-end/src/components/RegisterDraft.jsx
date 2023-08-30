@@ -20,7 +20,7 @@ const RegisterDraft = ({ intro, placeholder }) => {
   };
 
   return (
-    <div className="font-pretendard-l bg-gradient-to-b from-orange from-60% rounded-xl p-6 h-[45rem] w-[24rem] text-left">
+    <div className="font-pretendard-l bg-gradient-to-b from-orange from-60% rounded-xl p-6 h-[35rem] w-[24rem] text-left">
       <div className="font-bold text-2xl mb-5">{intro}</div>
       <label
         className="block border-white border-2 text-3xl rounded-lg text-center w-[21rem] max-h-[30rem] min-h-[6rem] mb-6 text-white pt-6"
@@ -31,7 +31,7 @@ const RegisterDraft = ({ intro, placeholder }) => {
       <input ref={file} onChange={handleOnFile} type="file" id="input-file" className="hidden" />
       {imgFile && (
         <div className="flex flex-col justify-center items-center">
-          <img src={imgFile} className="mb-6 w-[60%] animate-fadein duration-500" alt="upload" />
+          <img src={imgFile} className="mb-6 w-[60%] animate-entry duration-500" alt="upload" />
         </div>
       )}
 

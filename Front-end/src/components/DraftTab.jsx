@@ -13,6 +13,6 @@ const DraftTab = forwardRef(({ children, onClick }, ref) => {
   );
 });
 
-DraftTab.displayName = "DraftTab"; // displayName 추가
+DraftTab.displayName = "DraftTab";
 
 export default DraftTab;

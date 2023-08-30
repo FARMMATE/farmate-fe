@@ -11,7 +11,7 @@ const Splash = () => {
 
   return (
     <div className="flex flex-col items-center justify-center w-[100vw] h-[100vh]">
-      <img className="w-[16rem] mb-24 animate-fadein" src="/farmate-logo.png" alt="logo" />
+      <img className="w-[16rem] mb-24 animate-godown" src="/farmate-logo.png" alt="logo" />
       <div className="drop-shadow-2xl fixed bottom-12 animate-toup">
         <OrangeBtn onClick={handleOnClick}>시작하기</OrangeBtn>
       </div>

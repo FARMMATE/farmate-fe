@@ -11,9 +11,9 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const handleOnClick = () => {
-    if(window.Android){
-      window.Android.checkLogin("1","1")
-    }else{
+    if (window.Android) {
+      window.Android.checkLogin("1", "1");
+    } else {
       navigate(routes.detailProduct);
     }
   };
@@ -39,14 +39,17 @@ const LoginForm = () => {
         <SubLabel>비밀번호 찾기</SubLabel>
       </div>
 
-      <span className="bg-[#F6CF2C] rounded-xl mb-2">
-        <SocialBtn>카카오로 간편 로그인</SocialBtn>
+      <span className="bg-[#FEE500] rounded-xl mb-2 shadow-lg">
+        <SocialBtn src="/public/kakao.png">카카오로 간편 로그인</SocialBtn>
       </span>
-      <span className="bg-[#3BC350] rounded-xl mb-2">
-        <SocialBtn>네이버로 간편 로그인</SocialBtn>
+      <span className="bg-[#3BC350] rounded-xl mb-2 shadow-lg">
+        <SocialBtn src="/public/naver.png">네이버로 간편 로그인</SocialBtn>
       </span>
-      <span className="bg-yellow-200 rounded-xl mb-2">
-        <SocialBtn>google로 간편 로그인</SocialBtn>
+      <span
+        className="bg-white rounded-xl mb-2 shadow-lg 
+"
+      >
+        <SocialBtn src="/public/google.png">google로 간편 로그인</SocialBtn>
       </span>
     </>
   );

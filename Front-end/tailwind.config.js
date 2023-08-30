@@ -38,6 +38,16 @@ export default {
             transform: "translateZ(0)",
           },
         },
+        linefadein: {
+          "0%": {
+            opacity: 0,
+            transform: "translate3d(-30%, 0, 0)",
+          },
+          to: {
+            opacity: 1,
+            transform: "translateZ(0)",
+          },
+        },
         godown: {
           "0%": {
             opacity: 0,
@@ -94,6 +104,7 @@ export default {
         fadeout: "fadeout 1s ease-out",
         logofadeout: "logofadeout 0.5s ease-out",
         buttonfadeout: "buttonfadeout 0.5s ease-out",
+        linefadein: "linefadein 0.5s ease-in-out",
       },
     },
     fontFamily: {

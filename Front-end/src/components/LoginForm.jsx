@@ -14,7 +14,7 @@ const LoginForm = () => {
     if (window.Android) {
       window.Android.checkLogin("1", "1");
     } else {
-      navigate(routes.detailProduct);
+      navigate(routes.detailProduct + "/peach");
     }
   };
   return (

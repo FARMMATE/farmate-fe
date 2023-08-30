@@ -53,7 +53,7 @@ const DetailProduct = ({ id }) => {
       </div>
 
       <div className="fixed z-20 bottom-10 drop-shadow-xl bg-transparent" accept="pdf image/*">
-        <OrangeBtn onClick={() => navigate(routes.business)}>컨택하기</OrangeBtn>
+        <OrangeBtn onClick={() => navigate(routes.business, { state: id })}>컨택하기</OrangeBtn>
       </div>
     </>
   );

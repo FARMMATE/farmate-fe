@@ -39,14 +39,14 @@ const LoginForm = () => {
         <SubLabel>비밀번호 찾기</SubLabel>
       </div>
 
-      <span className="bg-[#FEE500] rounded-xl mb-2 shadow-lg">
+      <span className="bg-[#FEE500] rounded-xl mb-2 shadow-lg h-12">
         <SocialBtn src="/public/kakao.png">카카오로 간편 로그인</SocialBtn>
       </span>
-      <span className="bg-[#3BC350] rounded-xl mb-2 shadow-lg">
+      <span className="bg-[#3BC350] rounded-xl mb-2 shadow-lg h-12">
         <SocialBtn src="/public/naver.png">네이버로 간편 로그인</SocialBtn>
       </span>
       <span
-        className="bg-white rounded-xl mb-2 shadow-lg 
+        className="bg-white rounded-xl mb-2 shadow-lg h-12
 "
       >
         <SocialBtn src="/public/google.png">google로 간편 로그인</SocialBtn>

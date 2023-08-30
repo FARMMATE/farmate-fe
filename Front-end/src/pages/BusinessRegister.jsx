@@ -1,6 +1,7 @@
 import DraftTab from "../components/DraftTab";
 import OrangeBtn from "../components/OrangeBtn";
-import BusinessIntro from "../components/BusinessIntro";
+import Business from "../components/Business";
+import RegisterDraft from "../components/RegisterDraft";
 import { BusinessTab } from "../utils/BusinessTab";
 import { register } from "../utils/BusinessTab";
 import { detail } from "../utils/BusinessTab";
@@ -39,10 +40,14 @@ const BusinessRegister = () => {
             <DraftTab onClick={() => handleOnClick("detail")}>{BusinessTab[2]}</DraftTab>
           </div>
         </div>
-        {clickTab[0] ? <BusinessIntro intro={intro[0]} placeholder={intro[1]} /> : null}
-        {clickTab[1] ? <BusinessIntro intro={register[0]} placeholder={register[1]} /> : null}
-        {clickTab[2] ? <BusinessIntro intro={detail[0]} placeholder={detail[1]} /> : null}
-        <div className="drop-shadow-2xl fixed bottom-12 ml-4">
+        {clickTab[0] ? <Business intro={intro[0]} placeholder={intro[1]} /> : null}
+        {clickTab[1] ? (
+          <>
+            <RegisterDraft intro={register[0]} placeholder={register[1]} />{" "}
+          </>
+        ) : null}
+        {clickTab[2] ? <Business intro={detail[0]} placeholder={detail[1]} /> : null}
+        <div className="drop-shadow-lg fixed bottom-12 ml-4">
           <OrangeBtn>정보 등록하기</OrangeBtn>
         </div>
       </div>

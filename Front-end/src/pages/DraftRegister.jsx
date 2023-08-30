@@ -2,9 +2,7 @@ import DraftTab from "../components/DraftTab";
 import OrangeBtn from "../components/OrangeBtn";
 import Business from "../components/Business";
 import RegisterDraft from "../components/RegisterDraft";
-import { BusinessTab } from "../utils/BusinessTab";
-import { register } from "../utils/BusinessTab";
-import { detail } from "../utils/BusinessTab";
+import { BusinessTab, register, detail } from "../utils/BusinessTab";
 import { useState, useRef, useEffect } from "react";
 import { intro } from "../utils/BusinessTab";
 
@@ -33,11 +31,15 @@ const DraftRegister = () => {
       <div className="flex flex-col m-5">
         <div className="flex flex-col justify-start items-start text-left">
           <div className="flex mb-6">
-            <DraftTab ref={introFocus} onClick={() => handleOnClick("intro")}>
+            <DraftTab ref={introFocus} isClicked={clickTab[0]} onClick={() => handleOnClick("intro")}>
               {BusinessTab[0]}
             </DraftTab>
-            <DraftTab onClick={() => handleOnClick("register")}>{BusinessTab[1]}</DraftTab>
-            <DraftTab onClick={() => handleOnClick("detail")}>{BusinessTab[2]}</DraftTab>
+            <DraftTab isClicked={clickTab[1]} onClick={() => handleOnClick("register")}>
+              {BusinessTab[1]}
+            </DraftTab>
+            <DraftTab isClicked={clickTab[2]} onClick={() => handleOnClick("detail")}>
+              {BusinessTab[2]}
+            </DraftTab>
           </div>
         </div>
         {clickTab[0] ? <Business intro={intro[0]} placeholder={intro[1]} /> : null}

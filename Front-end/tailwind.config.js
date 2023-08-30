@@ -76,6 +76,15 @@ export default {
             transform: "translate3d(0, -100%, 0)",
           },
         },
+        buttonfadeout: {
+          "0%": {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
+            transform: "translate3d(0, 100%, 0)",
+          },
+        },
       },
       animation: {
         fadein: "fadein 0.5s ease-out",
@@ -84,6 +93,7 @@ export default {
         entry: "entry 1s ease-out",
         fadeout: "fadeout 1s ease-out",
         logofadeout: "logofadeout 0.5s ease-out",
+        buttonfadeout: "buttonfadeout 0.5s ease-out",
       },
     },
     fontFamily: {

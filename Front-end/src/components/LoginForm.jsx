@@ -2,8 +2,6 @@ import Input from "./Input";
 import OrangeBtn from "./OrangeBtn";
 import SocialBtn from "./SocialBtn";
 import SubLabel from "./SubLabel";
-import { email, passwd } from "../utils/userInfo";
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import routes from "../routes";
 import useInput from "../hooks/useInput";

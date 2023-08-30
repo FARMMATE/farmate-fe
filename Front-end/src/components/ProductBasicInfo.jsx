@@ -14,7 +14,7 @@ const ProductBasicInfo = ({ id }) => {
 
       const scrollTop = window.scrollY;
 
-      if (lnbOffsetTop <= scrollTop + 100) {
+      if (lnbOffsetTop <= scrollTop + 40) {
         setIsLnbFixed(true);
       } else {
         setIsLnbFixed(false);

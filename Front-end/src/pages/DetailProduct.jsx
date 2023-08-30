@@ -6,6 +6,7 @@ import { product } from "../utils/product";
 import { useNavigate } from "react-router-dom";
 import routes from "../routes";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const DetailProduct = ({ id }) => {
   const navigate = useNavigate();
@@ -41,6 +42,25 @@ const DetailProduct = ({ id }) => {
     };
   }, []);
 
+  const handleOnClick = () => {
+    Swal.fire({
+      text: "컨택하시겠습니까?",
+      fontSize: "2rem",
+      // icon: "question",
+      width: 300,
+      height: 200,
+      showCancelButton: true,
+      cancelButtonColor: "#505050",
+      confirmButtonColor: "#FF9B64",
+      confirmButtonText: "예",
+      cancelButtonText: "아니오",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate(routes.goDraft, { state: id });
+      }
+    });
+  };
+
   return (
     <>
       <ProductBasicInfo id={id} />
@@ -70,7 +90,7 @@ const DetailProduct = ({ id }) => {
       </div>
 
       <div className="fixed z-20 bottom-10 drop-shadow-xl bg-transparent" accept="pdf image/*">
-        <OrangeBtn onClick={() => navigate(routes.goDraft, { state: id })}>컨택하기</OrangeBtn>
+        <OrangeBtn onClick={handleOnClick}>컨택하기</OrangeBtn>
       </div>
     </>
   );

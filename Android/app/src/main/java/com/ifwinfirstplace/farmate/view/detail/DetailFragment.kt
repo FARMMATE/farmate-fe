@@ -35,6 +35,7 @@ class DetailFragment : Fragment() {
             (activity as PageChangeListener).changePage(Page.DETAIL)
         }
         binding.webView.apply {
+            webChromeClient = (activity as PageChangeListener).getWebViewClient()
             loadUrl(Const.ip+":"+ Const.port+"/detail-product")
             settings.javaScriptEnabled = true
         }

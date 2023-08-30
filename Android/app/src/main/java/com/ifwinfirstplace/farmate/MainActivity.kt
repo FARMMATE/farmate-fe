@@ -1,22 +1,36 @@
 package com.ifwinfirstplace.farmate
 
+import android.content.Intent
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.ComponentActivity
-import androidx.activity.OnBackPressedDispatcher
+import android.webkit.ValueCallback
+import android.webkit.WebChromeClient
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.ifwinfirstplace.farmate.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 import kotlin.system.exitProcess
+
 
 class MainActivity : AppCompatActivity(), PageChangeListener {
     private var _binding : ActivityMainBinding? = null;
     private val binding : ActivityMainBinding
         get() = requireNotNull(_binding)
+    var uploadMessage: ValueCallback<Array<Uri>>? = null
+
+    var launcher = registerForActivityResult<String, Uri>(ActivityResultContracts.GetContent()) {
+        uploadMessage?.onReceiveValue(arrayOf(it))
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -102,5 +116,26 @@ class MainActivity : AppCompatActivity(), PageChangeListener {
         moveTaskToBack(true)
         finishAndRemoveTask()
         exitProcess(0)
+    }
+
+    override fun getWebViewClient(): WebChromeClient {
+        return  MyWebChromeClient()
+    }
+
+
+    inner class MyWebChromeClient : WebChromeClient() {
+        override fun onShowFileChooser(
+            webView: WebView,
+            filePathCallback: ValueCallback<Array<Uri>>,
+            fileChooserParams: FileChooserParams
+        ): Boolean {
+            if(uploadMessage != null){ // 값이 존재하면 널값을 넣어 초기화해주어야 한다.
+                uploadMessage!!.onReceiveValue(null)
+            }
+            uploadMessage = filePathCallback
+
+            launcher.launch("image/*")
+            return true
+        }
     }
 }

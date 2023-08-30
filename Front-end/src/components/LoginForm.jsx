@@ -11,7 +11,11 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const handleOnClick = () => {
-    navigate(routes.detailProduct);
+    if(window.Android){
+      window.Android.checkLogin("1","1")
+    }else{
+      navigate(routes.detailProduct);
+    }
   };
   return (
     <>

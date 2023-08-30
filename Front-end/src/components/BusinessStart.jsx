@@ -1,7 +1,9 @@
 const BusinessStart = () => {
   return (
     <div className="font-pretendard-l flex flex-col justify-start text-left p-6 mt-[10rem]">
-      <img src="/export.png" alt="export" />
+      <div className="animate-fadein">
+        <img src="/export.png" alt="export" />
+      </div>
       <div className="font-pretendard-r text-3xl font-bold mt-[4rem] mb-10">전문가를 원해요!</div>
       <div>
         선택하신 상품은 <span className="text-orange font-bold">For Business</span>입니다!

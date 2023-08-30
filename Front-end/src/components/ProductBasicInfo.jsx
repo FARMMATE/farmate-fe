@@ -1,9 +1,9 @@
 import ProductTitle from "./ProductTitle";
 import ProductInfo from "./ProductInfo";
-import { productInfo } from "../utils/productInfo";
+import { strawberryInfo, peachInfo } from "../utils/productInfo";
 import { useState, useEffect, useRef } from "react";
 
-const ProductBasicInfo = () => {
+const ProductBasicInfo = ({ id }) => {
   const [isLnbFixed, setIsLnbFixed] = useState(false);
   const lnb = useRef(null);
 
@@ -38,15 +38,15 @@ const ProductBasicInfo = () => {
         }
       >
         <div>
-          <img className="w-[26rem]" src="/eximg.png" alt="product" />
+          <img className="w-[26rem]" src={id === "peach" ? "/peach.jpg" : "/eximg.png"} alt="product" />
         </div>
         <div id="lnb" ref={lnb} className="mt-14 pb-8">
-          <ProductTitle />
+          <ProductTitle id={id} />
           <div className="text-start mt-5 mr-14">
-            <ProductInfo type="예산">{productInfo[2]}</ProductInfo>
-            <ProductInfo type="모집 기간">{productInfo[3]}</ProductInfo>
-            <ProductInfo type="작업 기간">{productInfo[4]}</ProductInfo>
-            <ProductInfo type="브랜딩 사항">{productInfo[5]}</ProductInfo>
+            <ProductInfo type="예산">{id === "peach" ? peachInfo[2] : strawberryInfo[2]}</ProductInfo>
+            <ProductInfo type="모집 기간">{id === "peach" ? peachInfo[3] : strawberryInfo[3]}</ProductInfo>
+            <ProductInfo type="작업 기간">{id === "peach" ? peachInfo[4] : strawberryInfo[4]}</ProductInfo>
+            <ProductInfo type="브랜딩 사항">{id === "peach" ? peachInfo[5] : strawberryInfo[5]}</ProductInfo>
           </div>
         </div>
       </div>

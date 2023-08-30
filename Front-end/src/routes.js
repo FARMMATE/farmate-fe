@@ -2,9 +2,9 @@ const routes = {
   home: "/",
   login: "/login",
   detailProduct: "/detail-product",
-  business: "/business",
+  goDraft: "/go-draft",
   splash: "splash",
-  businessRegister: "/business-register",
+  draftRegister: "/draft-register",
 };
 
 export default routes;

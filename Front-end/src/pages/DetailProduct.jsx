@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import routes from "../routes";
 import { useEffect, useState } from "react";
 
-const DetailProduct = () => {
+const DetailProduct = ({ id }) => {
+  console.log(id === "peach");
   const navigate = useNavigate();
   const [toast, setToast] = useState(false);
   const [scroll, setScroll] = useState(false);
@@ -34,13 +35,13 @@ const DetailProduct = () => {
 
   return (
     <>
-      <ProductBasicInfo />
+      <ProductBasicInfo id={id} />
       <div className="absolute top-[30rem] overflow-scroll h-fit bg-gray-100">
-        <ProductDetailInfo type={farm[0]} src="/strawberry.png">
-          {farm[1]}
+        <ProductDetailInfo type={farm[0]} src={id === "peach" ? "/peach3.png" : "/strawberry.png"}>
+          {id === "peach" ? farm[2] : farm[1]}
         </ProductDetailInfo>
-        <ProductDetailInfo type={product[0]} src="/strawberry2.png">
-          {product[1]}
+        <ProductDetailInfo type={product[0]} src={id === "peach" ? "/peach2.png" : "/strawberry2.png"}>
+          {id === "peach" ? product[2] : product[1]}
         </ProductDetailInfo>
         {toast && (
           <div className="flex justify-center align-center">

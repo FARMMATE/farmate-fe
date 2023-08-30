@@ -10,7 +10,7 @@ const Business = ({ intro, placeholder }) => {
   };
 
   return (
-    <div className="font-pretendard-l bg-gradient-to-b from-orange from-60% rounded-xl p-6 h-[45rem] w-[24rem] text-left">
+    <div className="font-pretendard-l bg-gradient-to-b from-orange from-60% rounded-xl p-6 h-[35rem] w-[24rem] text-left">
       <div className="font-bold text-2xl mb-5">{intro}</div>
       <textarea
         type="text"

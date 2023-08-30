@@ -6,9 +6,19 @@ import { email, passwd } from "../utils/userInfo";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import routes from "../routes";
+import useInput from "../hooks/useInput";
+import useValidation from "../hooks/useValidation";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+
+  const { value, handleOnChange } = useInput({
+    email: "",
+    password: "",
+  });
+
+  const { msg: emailMsg, handleSetMsg: handleSetEmailMsg } = useValidation("");
+  const { msg: pwMsg, handleSetMsg: handleSetPwMsg } = useValidation("");
 
   const handleOnClick = () => {
     if (window.Android) {
@@ -17,14 +27,37 @@ const LoginForm = () => {
       navigate(routes.detailProduct + "/peach");
     }
   };
+
   return (
     <>
       <div className="flex flex-col justify-start text-left">
         <div className="text-xl font-semibold text-left mt-16 mb-20 font-pretendard-r">로그인</div>
-        <Input id="email" name="email" type="email" placeholder="예)farmate@farmate.co.kr">
+        <Input
+          id="email"
+          name="email"
+          type="email"
+          value={value.email}
+          placeholder="예)farmate@farmate.co.kr"
+          onChange={(e) => {
+            handleOnChange(e);
+            handleSetEmailMsg(e);
+          }}
+          errorMsg={emailMsg}
+        >
           이메일
         </Input>
-        <Input id="passwd" name="passwd" type="password" placeholder="******">
+        <Input
+          id="password"
+          name="password"
+          type="password"
+          value={value.password}
+          placeholder="******"
+          onChange={(e) => {
+            handleOnChange(e);
+            handleSetPwMsg(e);
+          }}
+          errorMsg={pwMsg}
+        >
           비밀번호
         </Input>
       </div>

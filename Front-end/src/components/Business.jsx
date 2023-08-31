@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { intro } from "../utils/BusinessTab";
 
 const Business = ({ intro, placeholder }) => {
   const textarea = useRef();

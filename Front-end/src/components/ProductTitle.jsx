@@ -1,5 +1,5 @@
-import { strawberryInfo, peachInfo } from "../utils/productInfo";
-import { businessUser, supportUser } from "../utils/user";
+import { strawberryInfo, peachInfo } from "../constants/productInfo";
+import { businessUser, supportUser } from "../constants/user";
 
 const ProductTitle = ({ id }) => {
   return (

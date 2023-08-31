@@ -1,4 +1,4 @@
-import { businessUser, supportUser } from "../utils/user";
+import { businessUser, supportUser } from "../constants/user";
 
 const DraftStart = ({ id }) => {
   return (

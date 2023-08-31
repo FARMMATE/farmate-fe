@@ -1,6 +1,6 @@
 import ProductTitle from "./ProductTitle";
 import ProductInfo from "./ProductInfo";
-import { strawberryInfo, peachInfo } from "../utils/productInfo";
+import { strawberryInfo, peachInfo } from "../constants/productInfo";
 import { useState, useEffect, useRef } from "react";
 
 const ProductBasicInfo = ({ id }) => {

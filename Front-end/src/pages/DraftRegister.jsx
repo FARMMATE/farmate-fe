@@ -2,9 +2,9 @@ import DraftTab from "../components/DraftTab";
 import OrangeBtn from "../components/OrangeBtn";
 import Business from "../components/Business";
 import RegisterDraft from "../components/RegisterDraft";
-import { BusinessTab, register, detail } from "../utils/BusinessTab";
+import { BusinessTab, register, detail } from "../constants/BusinessTab";
 import { useState, useRef, useEffect } from "react";
-import { intro } from "../utils/BusinessTab";
+import { intro } from "../constants/BusinessTab";
 
 const DraftRegister = () => {
   const [clickTab, setClickTab] = useState([true, false, false]);

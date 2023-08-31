@@ -79,16 +79,16 @@ const LoginForm = () => {
         </div>
 
         <span className="bg-[#FEE500] rounded-xl mb-2 shadow-lg h-12">
-          <SocialBtn src="/public/kakao.png">카카오로 간편 로그인</SocialBtn>
+          <SocialBtn src="/kakao.png">카카오로 간편 로그인</SocialBtn>
         </span>
         <span className="bg-[#3BC350] rounded-xl mb-2 shadow-lg h-12">
-          <SocialBtn src="/public/naver.png">네이버로 간편 로그인</SocialBtn>
+          <SocialBtn src="/naver.png">네이버로 간편 로그인</SocialBtn>
         </span>
         <span
           className="bg-white rounded-xl mb-2 shadow-lg h-12
 "
         >
-          <SocialBtn src="/public/google.png">google로 간편 로그인</SocialBtn>
+          <SocialBtn src="/google.png">google로 간편 로그인</SocialBtn>
         </span>
       </div>
     </>

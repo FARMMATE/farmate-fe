@@ -1,8 +1,8 @@
 import ProductBasicInfo from "../components/ProductBasicInfo";
 import ProductDetailInfo from "../components/ProductDetailInfo";
 import OrangeBtn from "../components/OrangeBtn";
-import { farm } from "../utils/farm";
-import { product } from "../utils/product";
+import { farm } from "../constants/farm";
+import { product } from "../constants/product";
 import { useNavigate } from "react-router-dom";
 import routes from "../routes";
 import { useEffect, useState } from "react";
@@ -46,7 +46,6 @@ const DetailProduct = ({ id }) => {
     Swal.fire({
       text: "컨택하시겠습니까?",
       fontSize: "2rem",
-      // icon: "question",
       width: 300,
       height: 200,
       showCancelButton: true,

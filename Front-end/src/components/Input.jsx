@@ -1,7 +1,7 @@
 const Input = ({ htmlFor, children, errorMsg, ...inputProps }) => {
   return (
     <>
-      <label className="font-medium mb-6 text-lg font-pretendard-l" htmlFor={htmlFor}>
+      <label className="mb-6 text-lg font-pretendard-l" htmlFor={htmlFor}>
         {children}
       </label>
       <input

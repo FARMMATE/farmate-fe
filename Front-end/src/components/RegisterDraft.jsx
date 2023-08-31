@@ -5,7 +5,7 @@ const RegisterDraft = ({ intro, placeholder }) => {
   const [imgFile, setImgFile] = useState("");
 
   const file = useRef();
-  var reader = new FileReader();
+  const reader = new FileReader();
 
   const handleResizeHeight = () => {
     textarea.current.style.height = "auto";
@@ -40,7 +40,7 @@ const RegisterDraft = ({ intro, placeholder }) => {
         ref={textarea}
         onChange={handleResizeHeight}
         rows={1}
-        className="bg-white outline-none text-[1.1rem] stext-gray-900 rounded-lg block w-full p-2.5 max-h-[30rem] min-h-[6rem]"
+        className="bg-white outline-none text-[1.1rem] text-gray-900 rounded-lg block w-full p-2.5 max-h-[30rem] min-h-[6rem]"
         placeholder={placeholder}
       />
     </div>
